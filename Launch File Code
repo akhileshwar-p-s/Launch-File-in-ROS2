@@ -1,0 +1,26 @@
+import launch
+import launch.actions
+import launch.substitutions
+import launch_ros.actions
+
+def generate_launch_description():
+
+    return launch.LaunchDescription([
+
+        #NODE1
+        launch_ros.actions.Node(
+            package='temp_pkg',
+            executable='temp_pub.py',
+            name='temperature_publisher',
+            output='screen'#to show thw output
+        ),
+
+        #NODE2
+        launch_ros.actions.Node(
+            package='temp_pkg',
+            executable='temp_sub.py',
+            name='temperature_subscriber',
+            output='screen'#to show thw output
+        )
+
+    ])
